@@ -9,11 +9,7 @@ const app = new Hono();
 
 app.use("*", cors());
 
-app.get("/", (c) => {
-	return c.text("Hello Hono!");
-});
-
-app.route("/orders", orderRouter);
+app.route("/", orderRouter);
 app.route("/purchase", purchaseRouter);
 
 const port = Number(process.env.PORT) || 3000;
